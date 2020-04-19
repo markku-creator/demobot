@@ -25,10 +25,10 @@ add_subdirectory($ENV{E_ROOT}/iocom/extensions/devicedir "${CMAKE_CURRENT_BINARY
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY $ENV{E_BIN})
 
 # Set path to source files.
-set(E_SOURCE_PATH "$ENV{E_ROOT}/rookie/${E_PROJECT}/code")
+set(E_SOURCE_PATH "$ENV{E_ROOT}/demobot/${E_PROJECT}/code")
 
 # Include IO pin and communication signal configuration for this hardware.
-include_directories("$ENV{E_ROOT}/rookie/${E_PROJECT}/config/include/${E_HW}")
+include_directories("$ENV{E_ROOT}/demobot/${E_PROJECT}/config/include/${E_HW}")
 
 # Add iocom and pins to include path.
 include_directories("$ENV{E_ROOT}/iocom")
