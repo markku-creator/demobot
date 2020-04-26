@@ -469,6 +469,12 @@
 
 {
   "directory": "/coderoot/demobot/rookie/build",
+  "command": "/usr/bin/cc -DE_OSVER_linux -DE_OS_linux -I/coderoot/eosal -I/coderoot/rookie -I/coderoot/eosal/dependencies/linux/include   -Wall -fPIC -g   -o eosal/CMakeFiles/eosald.dir/extensions/filesys/linux/osal_filectrl.c.o   -c /coderoot/eosal/extensions/filesys/linux/osal_filectrl.c",
+  "file": "/coderoot/eosal/extensions/filesys/linux/osal_filectrl.c"
+},
+
+{
+  "directory": "/coderoot/demobot/rookie/build",
   "command": "/usr/bin/cc -DE_OSVER_linux -DE_OS_linux -I/coderoot/eosal -I/coderoot/rookie -I/coderoot/eosal/dependencies/linux/include   -Wall -fPIC -g   -o eosal/CMakeFiles/eosald.dir/extensions/filesys/linux/osal_filestat.c.o   -c /coderoot/eosal/extensions/filesys/linux/osal_filestat.c",
   "file": "/coderoot/eosal/extensions/filesys/linux/osal_filestat.c"
 },
@@ -871,6 +877,12 @@
 
 {
   "directory": "/coderoot/demobot/rookie/build",
+  "command": "/usr/bin/cc -DE_OSVER_linux -DE_OS_linux -I/coderoot/eosal -I/coderoot/rookie -I/coderoot/eosal/dependencies/linux/include -I/coderoot/devicedir -I/coderoot/iocom -I/coderoot/iocom/extensions/devicedir   -Wall -fPIC -g   -o iocom/extensions/devicedir/CMakeFiles/devicedird.dir/code/devicedir_get_json.c.o   -c /coderoot/iocom/extensions/devicedir/code/devicedir_get_json.c",
+  "file": "/coderoot/iocom/extensions/devicedir/code/devicedir_get_json.c"
+},
+
+{
+  "directory": "/coderoot/demobot/rookie/build",
   "command": "/usr/bin/cc -DE_OSVER_linux -DE_OS_linux -I/coderoot/eosal -I/coderoot/rookie -I/coderoot/eosal/dependencies/linux/include -I/coderoot/devicedir -I/coderoot/iocom -I/coderoot/iocom/extensions/devicedir   -Wall -fPIC -g   -o iocom/extensions/devicedir/CMakeFiles/devicedird.dir/code/devicedir_helper.c.o   -c /coderoot/iocom/extensions/devicedir/code/devicedir_helper.c",
   "file": "/coderoot/iocom/extensions/devicedir/code/devicedir_helper.c"
 },
@@ -885,5 +897,11 @@
   "directory": "/coderoot/demobot/rookie/build",
   "command": "/usr/bin/cc -DE_OSVER_linux -DE_OS_linux -I/coderoot/eosal -I/coderoot/rookie -I/coderoot/eosal/dependencies/linux/include -I/coderoot/devicedir -I/coderoot/iocom -I/coderoot/iocom/extensions/devicedir   -Wall -fPIC -g   -o iocom/extensions/devicedir/CMakeFiles/devicedird.dir/code/devicedir_memory_blocks.c.o   -c /coderoot/iocom/extensions/devicedir/code/devicedir_memory_blocks.c",
   "file": "/coderoot/iocom/extensions/devicedir/code/devicedir_memory_blocks.c"
+},
+
+{
+  "directory": "/coderoot/demobot/rookie/build",
+  "command": "/usr/bin/cc -DE_OSVER_linux -DE_OS_linux -I/coderoot/eosal -I/coderoot/rookie -I/coderoot/eosal/dependencies/linux/include -I/coderoot/devicedir -I/coderoot/iocom -I/coderoot/iocom/extensions/devicedir   -Wall -fPIC -g   -o iocom/extensions/devicedir/CMakeFiles/devicedird.dir/code/devicedir_overdrives.c.o   -c /coderoot/iocom/extensions/devicedir/code/devicedir_overdrives.c",
+  "file": "/coderoot/iocom/extensions/devicedir/code/devicedir_overdrives.c"
 }
 ]

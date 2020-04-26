@@ -1,10 +1,7 @@
 #include <Arduino.h>
 #include <eosalx.h>
 #include <iocom.h>
-#include <devicedir.h>
 #include <pins.h>
-#include <FreeRTOS.h>
-
 
 /*
   rookie_platformio.ino
@@ -28,10 +25,4 @@ void loop()
     /* Forward loop call to osal_loop(). Reboot if osal_loop returns "no success".
      */
     if (osal_loop(osal_application_context)) osal_reboot(0);
-
-    /* ESP-IDF 3.X/MELIFE test board : We cannot write too fast through WiFi, WiFi will lock up.
-     */
-#ifdef ESP_PLATFORM
-    os_sleep(3);
-#endif
 }

@@ -16,12 +16,10 @@
 #define IOCOM_IOBOARD
 #include "iocom.h"
 #include "pinsx.h"
-#include "nodeconf.h"
 
 #include "pins-io.h"
 #include "signals.h"
 #include "info-mblk.h"
-#include "network-defaults.h"
 
 
 void ioboard_root_callback(
