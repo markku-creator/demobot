@@ -54,8 +54,8 @@ chieftain_t;
 #define CHIEFTAIN_CONF_EXP_MBLK_SZ 272
 #define CHIEFTAIN_CONF_IMP_MBLK_SZ 276
 
-extern const chieftain_t chieftain;
-extern const iocDeviceHdr chieftain_hdr;
+extern OS_FLASH_MEM_H chieftain_t chieftain;
+extern OS_FLASH_MEM_H iocDeviceHdr chieftain_hdr;
 
 
 /* Array length defines. */

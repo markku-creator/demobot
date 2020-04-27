@@ -1,5 +1,5 @@
 /* This file is gerated by signals-to-c.py script, do not modify. */
-const struct rookie_t rookie = 
+OS_FLASH_MEM struct rookie_t rookie = 
 {
   {
     {"exp", &ioboard_exp, 4, ROOKIE_EXP_MBLK_SZ, (iocSignal*)&rookie.exp.LEFT},
@@ -18,10 +18,10 @@ const struct rookie_t rookie =
   }
 };
 
-static const iocMblkSignalHdr *rookie_mblk_list[] =
+static OS_FLASH_MEM iocMblkSignalHdr * OS_FLASH_MEM rookie_mblk_list[] =
 {
   &rookie.exp.hdr,
   &rookie.imp.hdr
 };
 
-const iocDeviceHdr rookie_hdr = {(iocMblkSignalHdr**)rookie_mblk_list, sizeof(rookie_mblk_list)/sizeof(iocMblkSignalHdr*)};
+OS_FLASH_MEM iocDeviceHdr rookie_hdr = {(iocMblkSignalHdr**)rookie_mblk_list, sizeof(rookie_mblk_list)/sizeof(iocMblkSignalHdr*)};

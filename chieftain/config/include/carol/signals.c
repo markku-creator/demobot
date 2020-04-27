@@ -1,5 +1,5 @@
 /* This file is gerated by signals-to-c.py script, do not modify. */
-const struct chieftain_t chieftain = 
+OS_FLASH_MEM struct chieftain_t chieftain = 
 {
   {
     {"exp", &ioboard_exp, 4, CHIEFTAIN_EXP_MBLK_SZ, (iocSignal*)&chieftain.exp.LEFT},
@@ -38,7 +38,7 @@ const struct chieftain_t chieftain =
   }
 };
 
-static const iocMblkSignalHdr *chieftain_mblk_list[] =
+static OS_FLASH_MEM iocMblkSignalHdr * OS_FLASH_MEM chieftain_mblk_list[] =
 {
   &chieftain.exp.hdr,
   &chieftain.imp.hdr,
@@ -46,4 +46,4 @@ static const iocMblkSignalHdr *chieftain_mblk_list[] =
   &chieftain.conf_imp.hdr
 };
 
-const iocDeviceHdr chieftain_hdr = {(iocMblkSignalHdr**)chieftain_mblk_list, sizeof(chieftain_mblk_list)/sizeof(iocMblkSignalHdr*)};
+OS_FLASH_MEM iocDeviceHdr chieftain_hdr = {(iocMblkSignalHdr**)chieftain_mblk_list, sizeof(chieftain_mblk_list)/sizeof(iocMblkSignalHdr*)};

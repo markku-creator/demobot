@@ -28,7 +28,7 @@
 */
 /* Select socket, TLS or serial communication before including chieftain.h.
  */
-#define IOBOARD_CTRL_CON IOBOARD_CTRL_CONNECT_TLS
+#define IOBOARD_CTRL_CON IOBOARD_CTRL_LISTEN_SERIAL
 #include "chieftain.h"
 
 /* The devicedir is here for testing only, take away.
@@ -188,7 +188,8 @@ osalStatus osal_main(
     prm.network_name = device_id->network_name;
     prm.ctrl_type = IOBOARD_CTRL_CON;
     prm.socket_con_str = connconf->connection[0].parameters;
-    prm.serial_con_str = connconf->connection[0].parameters;
+    /*prm.serial_con_str = connconf->connection[0].parameters;*/
+    prm.serial_con_str = "tnt5";
     prm.max_connections = IOBOARD_MAX_CONNECTIONS;
     prm.send_block_sz = CHIEFTAIN_EXP_MBLK_SZ;
     prm.receive_block_sz = CHIEFTAIN_IMP_MBLK_SZ;

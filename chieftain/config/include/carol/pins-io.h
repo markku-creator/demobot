@@ -25,10 +25,10 @@ typedef struct
 pins_t;
 
 /* CHIEFTAIN IO configuration top header structure */
-extern const IoPinsHdr pins_hdr;
+extern OS_FLASH_MEM_H IoPinsHdr pins_hdr;
 
 /* Global CHIEFTAIN IO configuration structure */
-extern const pins_t pins;
+extern OS_FLASH_MEM_H pins_t pins;
 
 /* Name defines for pins and application pin groups (use ifdef to check if HW has pin) */
 #define PINS_INPUTS_GAZERBEAM "gazerbeam"

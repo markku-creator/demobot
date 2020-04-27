@@ -82,7 +82,7 @@ osalStatus osal_main(
     prm.device_nr = 1;
     prm.network_name = "iocafenet";
     prm.ctrl_type = IOBOARD_CTRL_CON;
-    prm.serial_con_str = "COM1";
+    prm.serial_con_str = "tnt4";
     prm.max_connections = IOBOARD_MAX_CONNECTIONS;
     prm.send_block_sz = ROOKIE_EXP_MBLK_SZ;
     prm.receive_block_sz = ROOKIE_IMP_MBLK_SZ;
@@ -134,7 +134,6 @@ osalStatus osal_loop(
     void *app_context)
 {
     os_timer ti;
-    osalStatus s;
 
    /* static os_boolean test_toggle; */
 

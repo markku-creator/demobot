@@ -28,8 +28,8 @@ rookie_t;
 #define ROOKIE_EXP_MBLK_SZ 32
 #define ROOKIE_IMP_MBLK_SZ 32
 
-extern const rookie_t rookie;
-extern const iocDeviceHdr rookie_hdr;
+extern OS_FLASH_MEM_H rookie_t rookie;
+extern OS_FLASH_MEM_H iocDeviceHdr rookie_hdr;
 
 
 /* Defines to check in code with #ifdef to know if signal is configured in JSON. */
