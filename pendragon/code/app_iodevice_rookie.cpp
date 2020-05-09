@@ -88,16 +88,6 @@ rookie_t *RookieIoDevice::inititalize(
     ioc_set_handle_to_signals(&m_rookie_def.imp.hdr, &m_rookie_import);
     ioc_set_handle_to_signals(&m_rookie_def.exp.hdr, &m_rookie_export);
 
-#if IOC_DYNAMIC_MBLK_CODE
-    /* These will store signal header pointer in memory block. This is necessary
-       to clear OSAL_STATE_CONNECTED status bit when upper level, like I spy disconnects.
-       See ioc_tbuf_disconnect_signals() function.
-     */
-    mblk_set_signal_header(&m_rookie_import, &m_rookie_def.imp.hdr);
-    mblk_set_signal_header(&m_rookie_export, &m_rookie_def.exp.hdr);
-#endif
-
-
     /* Set callback to detect received data and connection status changes.
      */
     // ioc_add_callback(&ctx.inputs, iocontroller_callback, &ctx);

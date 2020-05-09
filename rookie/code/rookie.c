@@ -86,10 +86,8 @@ osalStatus osal_main(
     prm.max_connections = IOBOARD_MAX_CONNECTIONS;
     prm.send_block_sz = ROOKIE_EXP_MBLK_SZ;
     prm.receive_block_sz = ROOKIE_IMP_MBLK_SZ;
-    prm.auto_synchronization = OS_FALSE;
     prm.pool = ioboard_pool;
     prm.pool_sz = sizeof(ioboard_pool);
-    prm.device_signal_hdr = &rookie_hdr;
     prm.device_info = ioapp_signal_config;
     prm.device_info_sz = sizeof(ioapp_signal_config);
 
@@ -282,6 +280,6 @@ void ioboard_root_callback(
     {
         /* Call pins library extension to forward communication signal changes to IO pins.
          */
-        forward_signal_change_to_io_pins(handle, start_addr, end_addr, flags);
+        forward_signal_change_to_io_pins(handle, start_addr, end_addr, &rookie_hdr, flags);
     }
 }
