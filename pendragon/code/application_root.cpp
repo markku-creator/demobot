@@ -2,7 +2,7 @@
 
   @file    controller_root.cpp
   @brief   Root class for Pendragon application.
-  @author  Pekka Lehtikoski
+  @author  Pekka Lehtikoski, Markku Nissinen
   @version 1.0
   @date    30.4.2020
 

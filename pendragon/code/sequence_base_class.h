@@ -2,7 +2,7 @@
 
   @file    sequence_base_class.h
   @brief   Sequence base class.
-  @author  Pekka Lehtikoski
+  @author  Pekka Lehtikoski, Markku Nissinen
   @version 1.0
   @date    30.4.2020
 

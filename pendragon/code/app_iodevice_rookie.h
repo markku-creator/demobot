@@ -2,7 +2,7 @@
 
   @file    app_iodevice_rookie.g
   @brief   Wrapper representing Rookie IO device interface.
-  @author  Pekka Lehtikoski
+  @author  Pekka Lehtikoski, Markku Nissinen
   @version 1.0
   @date    30.4.2020
 

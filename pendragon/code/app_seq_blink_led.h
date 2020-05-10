@@ -2,7 +2,7 @@
 
   @file    app_seq_blink_led.h
   @brief   Some example sequence as own thread.
-  @author  Pekka Lehtikoski
+  @author  Pekka Lehtikoski, Markku Nissinen
   @version 1.0
   @date    30.4.2020
 

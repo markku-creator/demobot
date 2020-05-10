@@ -2,7 +2,7 @@
 
   @file    controller_config.c
   @brief   Include and compile automatically generated C code.
-  @author  Pekka Lehtikoski
+  @author  Pekka Lehtikoski, Markku Nissinen
   @version 1.0
   @date    30.4.2020
 

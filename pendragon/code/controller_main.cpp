@@ -2,7 +2,7 @@
 
   @file    controller_main.c
   @brief   Program entry point, Pendragon IO controller set up.
-  @author  Pekka Lehtikoski
+  @author  Pekka Lehtikoski, Markku Nissinen
   @version 1.0
   @date    30.4.2020
 

@@ -2,7 +2,7 @@
 
   @file    iodevice_base_class.cpp
   @brief   Base class for a IO device class.
-  @author  Pekka Lehtikoski
+  @author  Pekka Lehtikoski, Markku Nissinen
   @version 1.0
   @date    30.4.2020
 
