@@ -88,8 +88,8 @@ osalStatus osal_main(
     prm.receive_block_sz = ROOKIE_IMP_MBLK_SZ;
     prm.pool = ioboard_pool;
     prm.pool_sz = sizeof(ioboard_pool);
-    prm.device_info = ioapp_signal_config;
-    prm.device_info_sz = sizeof(ioapp_signal_config);
+    prm.device_info = ioapp_signals_config;
+    prm.device_info_sz = sizeof(ioapp_signals_config);
 
     /* Start communication.
      */

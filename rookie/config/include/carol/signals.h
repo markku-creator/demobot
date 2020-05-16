@@ -1,4 +1,6 @@
-/* This file is gerated by signals-to-c.py script, do not modify. */
+/* This file is gerated by signals_to_c.py script, do not modify. */
+#ifndef IOC_SIGNALS_INCLUDED
+#define IOC_SIGNALS_INCLUDED
 OSAL_C_HEADER_BEGINS
 
 typedef struct rookie_t
@@ -47,3 +49,4 @@ extern OS_FLASH_MEM_H iocDeviceHdr rookie_hdr;
 #endif
 
 OSAL_C_HEADER_ENDS
+#endif
