@@ -80,8 +80,8 @@ build CMakeFiles/rookied.dir/code/rookie.c.o: C_COMPILER__rookied ../code/rookie
 
 build /coderoot/bin/linux/rookied: C_EXECUTABLE_LINKER__rookied CMakeFiles/rookied.dir/code/config.c.o CMakeFiles/rookied.dir/code/rookie.c.o | /coderoot/lib/linux_gcc/libdevicedird.a /coderoot/lib/linux_gcc/libselectwifid.a /coderoot/lib/linux_gcc/libgazerbeamd.a /coderoot/lib/linux_gcc/libnodeconfd.a /coderoot/lib/linux_gcc/liblighthoused.a /coderoot/lib/linux_gcc/libpinsd.a /coderoot/lib/linux_gcc/libiocomd.a /coderoot/lib/linux_gcc/libeosald.a || /coderoot/lib/linux_gcc/libdevicedird.a /coderoot/lib/linux_gcc/libeosald.a /coderoot/lib/linux_gcc/libgazerbeamd.a /coderoot/lib/linux_gcc/libiocomd.a /coderoot/lib/linux_gcc/liblighthoused.a /coderoot/lib/linux_gcc/libnodeconfd.a /coderoot/lib/linux_gcc/libpinsd.a /coderoot/lib/linux_gcc/libselectwifid.a
   FLAGS = -Wall -fPIC -g
-  LINK_LIBRARIES = -Wl,-rpath,/coderoot/eosal/dependencies/linux/linux_gcc /coderoot/lib/linux_gcc/libdevicedird.a /coderoot/lib/linux_gcc/libselectwifid.a /coderoot/lib/linux_gcc/libgazerbeamd.a /coderoot/lib/linux_gcc/libnodeconfd.a /coderoot/lib/linux_gcc/liblighthoused.a /coderoot/lib/linux_gcc/libpinsd.a /coderoot/lib/linux_gcc/libiocomd.a -leosal_jpegd /coderoot/lib/linux_gcc/libeosald.a -lmbedtlsd -lmbedx509d -lmbedcryptod -lssld -lcryptod -ldl -lpthread
-  LINK_PATH = -L/coderoot/eosal/dependencies/linux/linux_gcc
+  LINK_LIBRARIES = -Wl,-rpath,/coderoot/eosal/dependencies/linux/linux_gcc:/coderoot/lib/linux_gcc /coderoot/lib/linux_gcc/libdevicedird.a /coderoot/lib/linux_gcc/libselectwifid.a /coderoot/lib/linux_gcc/libgazerbeamd.a /coderoot/lib/linux_gcc/libnodeconfd.a /coderoot/lib/linux_gcc/liblighthoused.a /coderoot/lib/linux_gcc/libpinsd.a /coderoot/lib/linux_gcc/libiocomd.a -leosal_jpegd /coderoot/lib/linux_gcc/libeosald.a -lmbedtlsd -lmbedx509d -lmbedcryptod -lssld -lcryptod -ldl -lpthread
+  LINK_PATH = -L/coderoot/eosal/dependencies/linux/linux_gcc  -L/coderoot/lib/linux_gcc
   OBJECT_DIR = CMakeFiles/rookied.dir
   POST_BUILD = :
   PRE_LINK = :
