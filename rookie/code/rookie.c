@@ -46,6 +46,10 @@ static os_char
         ROOKIE_EXP_MBLK_SZ, ROOKIE_IMP_MBLK_SZ)
         + IOBOARD_POOL_DEVICE_INFO(IOBOARD_MAX_CONNECTIONS)];
 
+/* If needed for the operating system, EOSAL_C_MAIN macro generates the actual C main() function.
+ */
+EOSAL_C_MAIN
+
 /**
 ****************************************************************************************************
 
@@ -63,6 +67,9 @@ osalStatus osal_main(
 
     ioboardParams prm;
     const osalStreamInterface *iface;
+
+    OSAL_UNUSED(argc);
+    OSAL_UNUSED(argv);
 
     /* Setup IO pins.
      */
@@ -84,8 +91,8 @@ osalStatus osal_main(
     prm.ctrl_type = IOBOARD_CTRL_CON;
     prm.serial_con_str = "tnt4";
     prm.max_connections = IOBOARD_MAX_CONNECTIONS;
-    prm.send_block_sz = ROOKIE_EXP_MBLK_SZ;
-    prm.receive_block_sz = ROOKIE_IMP_MBLK_SZ;
+    prm.exp_mblk_sz = ROOKIE_EXP_MBLK_SZ;
+    prm.imp_mblk_sz = ROOKIE_IMP_MBLK_SZ;
     prm.pool = ioboard_pool;
     prm.pool_sz = sizeof(ioboard_pool);
     prm.device_info = ioapp_signals_config;
@@ -133,6 +140,8 @@ osalStatus osal_loop(
 {
     os_timer ti;
 
+    OSAL_UNUSED(app_context);
+
    /* static os_boolean test_toggle; */
 
     os_get_timer(&ti);
@@ -143,17 +152,17 @@ osalStatus osal_loop(
      */
     ioc_run(&ioboard_root);
     ioc_receive(&ioboard_imp);
-    ioc_receive(&ioboard_conf_imp);
+    /* ioc_receive(&ioboard_conf_imp); */
 
     /* Read all input pins from hardware into global pins structures. Reading will forward
        input states to communication.
      */
     pins_read_all(&pins_hdr, PINS_DEFAULT);
 
-    int LeftTurn = ioc_gets0_int(&rookie.imp.LeftTurn);
-    int RightTurn = ioc_gets0_int(&rookie.imp.RightTurn);
-    int StraightForward = ioc_gets0_int(&rookie.imp.StraightForward);
-    int ForwardBackward = ioc_gets0_int(&rookie.imp.ForwardBackward);
+    int LeftTurn = ioc_get(&rookie.imp.LeftTurn);
+    int RightTurn = ioc_get(&rookie.imp.RightTurn);
+    int StraightForward = ioc_get(&rookie.imp.StraightForward);
+    int ForwardBackward = ioc_get(&rookie.imp.ForwardBackward);
 
     if (StraightForward && ForwardBackward && !LeftTurn && !RightTurn) {
         pin_set(&pins.outputs.LEFT,0);
@@ -219,7 +228,7 @@ osalStatus osal_loop(
     if (os_timer_hit(&send_timer, &ti, 10))
     {
         ioc_send(&ioboard_exp);
-        ioc_send(&ioboard_conf_exp);
+        /* ioc_send(&ioboard_conf_exp); */
         ioc_run(&ioboard_root);
     }
 
@@ -246,6 +255,9 @@ osalStatus osal_loop(
 void osal_main_cleanup(
     void *app_context)
 {
+
+    OSAL_UNUSED(app_context);
+
     ioboard_end_communication();
     osal_serial_shutdown();
 }
@@ -276,6 +288,9 @@ void ioboard_root_callback(
     os_ushort flags,
     void *context)
 {
+
+    OSAL_UNUSED(context);
+
     if (flags & IOC_MBLK_CALLBACK_RECEIVE)
     {
         /* Call pins library extension to forward communication signal changes to IO pins.
