@@ -27,8 +27,8 @@ typedef struct rookie_t
 }
 rookie_t;
 
-#define ROOKIE_EXP_MBLK_SZ 32
-#define ROOKIE_IMP_MBLK_SZ 32
+#define ROOKIE_EXP_MBLK_SZ 24
+#define ROOKIE_IMP_MBLK_SZ 24
 
 extern OS_FLASH_MEM_H rookie_t rookie;
 extern OS_FLASH_MEM_H iocDeviceHdr rookie_hdr;

@@ -73,7 +73,7 @@ osalStatus osal_main(
 
     /* Setup IO pins.
      */
-    pins_setup(&pins_hdr, PINS_DEFAULT);
+    //pins_setup(&pins_hdr, PINS_DEFAULT);
 
     osal_serial_initialize();
 
@@ -89,7 +89,7 @@ osalStatus osal_main(
     prm.device_nr = 1;
     prm.network_name = "iocafenet";
     prm.ctrl_type = IOBOARD_CTRL_CON;
-    prm.serial_con_str = "tnt4";
+    prm.serial_con_str = "ttyS30";
     prm.max_connections = IOBOARD_MAX_CONNECTIONS;
     prm.exp_mblk_sz = ROOKIE_EXP_MBLK_SZ;
     prm.imp_mblk_sz = ROOKIE_IMP_MBLK_SZ;
@@ -97,6 +97,9 @@ osalStatus osal_main(
     prm.pool_sz = sizeof(ioboard_pool);
     prm.device_info = ioapp_signals_config;
     prm.device_info_sz = sizeof(ioapp_signals_config);
+
+    prm.exp_signal_hdr = &rookie.exp.hdr;
+    prm.imp_signal_hdr = &rookie.imp.hdr;
 
     /* Start communication.
      */
@@ -108,7 +111,7 @@ osalStatus osal_main(
 
     /* Connect PINS library to IOCOM library
      */
-    pins_connect_iocom_library(&pins_hdr);
+//    pins_connect_iocom_library(&pins_hdr);
 
     os_get_timer(&send_timer);
 
@@ -138,13 +141,13 @@ osalStatus osal_main(
 osalStatus osal_loop(
     void *app_context)
 {
-    os_timer ti;
+//    os_timer ti;
 
     OSAL_UNUSED(app_context);
 
    /* static os_boolean test_toggle; */
 
-    os_get_timer(&ti);
+//    os_get_timer(&ti);
 
     /* Keep the communication alive. If data is received from communication, the
        ioboard_root_callback() will be called. Move data data synchronously
@@ -154,6 +157,7 @@ osalStatus osal_loop(
     ioc_receive(&ioboard_imp);
     /* ioc_receive(&ioboard_conf_imp); */
 
+#if 0
     /* Read all input pins from hardware into global pins structures. Reading will forward
        input states to communication.
      */
@@ -213,6 +217,8 @@ osalStatus osal_loop(
         pin_set(&pins.outputs.BACKWARD,0);
     }
 
+#endif
+
     /* Send changed data synchronously from outgoing memory blocks every 50 ms. If we need
        very low latency IO in local network we can have interval like 1 ms, or just call send
        unconditionally.
@@ -225,12 +231,12 @@ osalStatus osal_loop(
        even then to keep software updates, etc. working. This doesn't generate much
        communication tough, conf_export doesn't change during normal operation.
      */
-    if (os_timer_hit(&send_timer, &ti, 10))
-    {
+//    if (os_timer_hit(&send_timer, &ti, 10))
+//    {
         ioc_send(&ioboard_exp);
-        /* ioc_send(&ioboard_conf_exp); */
-        ioc_run(&ioboard_root);
-    }
+//        /* ioc_send(&ioboard_conf_exp); */
+//        ioc_run(&ioboard_root);
+//    }
 
     return OSAL_SUCCESS;
 }
