@@ -77,6 +77,18 @@ osalStatus osal_main(
 
     osal_serial_initialize();
 
+/*    os_sleep(2000);
+    os_timer t1,t2;
+    os_get_timer(&t1);
+    osal_sysconsole_write("HERE 1\n");
+    os_sleep(5000);
+    os_get_timer(&t2);
+    osal_sysconsole_write("HERE 2\n");
+    os_char nbuf[OSAL_NBUF_SZ];
+    osal_int_to_str(nbuf,sizeof(nbuf),t2-t1);
+    osal_sysconsole_write(nbuf);
+    */
+
     /* Get stream interface by IOBOARD_CTRL_CON define.
      */
     iface = IOBOARD_IFACE;
@@ -98,8 +110,8 @@ osalStatus osal_main(
     prm.device_info = ioapp_signals_config;
     prm.device_info_sz = sizeof(ioapp_signals_config);
 
-    prm.exp_signal_hdr = &rookie.exp.hdr;
-    prm.imp_signal_hdr = &rookie.imp.hdr;
+//    prm.exp_signal_hdr = &rookie.exp.hdr;
+//    prm.imp_signal_hdr = &rookie.imp.hdr;
 
     /* Start communication.
      */
@@ -294,13 +306,21 @@ void ioboard_root_callback(
     os_ushort flags,
     void *context)
 {
-
     OSAL_UNUSED(context);
 
+#if IOBOARD_USE_PINS_IO
+    const iocSignal *sig;
     if (flags & IOC_MBLK_CALLBACK_RECEIVE)
     {
-        /* Call pins library extension to forward communication signal changes to IO pins.
-         */
-        forward_signal_change_to_io_pins(handle, start_addr, end_addr, &rookie_hdr, flags);
+        sig = &uno.imp.LED;
+        if (sig->ptr) if (ioc_is_my_address(sig, start_addr, end_addr)) {
+            forward_signal_change_to_io_pin(sig, IOC_SIGNAL_DEFAULT);
+        }
     }
+#else
+    OSAL_UNUSED(handle);
+    OSAL_UNUSED(start_addr);
+    OSAL_UNUSED(end_addr);
+    OSAL_UNUSED(flags);
+#endif
 }

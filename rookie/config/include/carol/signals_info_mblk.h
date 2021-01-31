@@ -3,7 +3,7 @@
 #define IOC_SIGNALS_INFO_MBLK_INCLUDED
 OSAL_C_HEADER_BEGINS
 
-extern OS_FLASH_MEM_H os_char ioapp_signals_config[268];
+extern OS_PROGMEM_H os_uchar ioapp_signals_config[268];
 
 OSAL_C_HEADER_ENDS
 #endif

@@ -13,7 +13,7 @@ static PinPrmValue pins_outputs_FORWARD_prm[]= {{PIN_RV, PIN_RV}, {PIN_RV, PIN_R
 static PinPrmValue pins_outputs_BACKWARD_prm[]= {{PIN_RV, PIN_RV}, {PIN_RV, PIN_RV}};
 
 /* ROOKIE IO configuration structure */
-OS_FLASH_MEM pins_t pins =
+OS_CONST pins_t pins =
 {
   {{1, &pins.inputs.gazerbeam}, /* inputs */
     {PIN_INPUT, 0, 39, pins_inputs_gazerbeam_prm, sizeof(pins_inputs_gazerbeam_prm)/sizeof(PinPrmValue), 0, OS_NULL, OS_NULL PINS_DEVCONF_NULL PINS_INTCONF_PTR(pin_gazerbeam_intconf)} /* gazerbeam */
@@ -29,14 +29,14 @@ OS_FLASH_MEM pins_t pins =
 };
 
 /* List of pin type groups */
-static OS_FLASH_MEM PinGroupHdr * OS_FLASH_MEM pins_group_list[] =
+static OS_CONST PinGroupHdr * OS_CONST pins_group_list[] =
 {
   &pins.inputs.hdr,
   &pins.outputs.hdr
 };
 
 /* ROOKIE IO configuration top header structure */
-OS_FLASH_MEM IoPinsHdr pins_hdr = {pins_group_list, sizeof(pins_group_list)/sizeof(PinGroupHdr*)};
+OS_CONST IoPinsHdr pins_hdr = {pins_group_list, sizeof(pins_group_list)/sizeof(PinGroupHdr*)};
 
 #if PINS_SPI || PINS_I2C
 
